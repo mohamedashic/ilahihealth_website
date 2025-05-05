@@ -12,6 +12,84 @@ body {
     line-height: 1.6;
 }
 
+/* Update color variables */
+:root {
+    --primary-color: #1d6b92;
+    --primary-dark: #165c7e;
+    --primary-light: #2587b8;
+    --grey-light: #f5f5f5;
+    --grey: #e0e0e0;
+    --white: #ffffff;
+}
+
+/* Replace existing color values with new ones */
+.header {
+    background: var(--primary-color);
+}
+
+.cta-button {
+    background-color: var(--primary-color);
+}
+
+.cta-button:hover {
+    background-color: var(--primary-dark);
+}
+
+.service-card h3,
+.about-content h2,
+.contact h2,
+.testimonials h2,
+.blog-title,
+.contact-details h3,
+.section-title {
+    color: var(--primary-color);
+}
+
+.stat-number,
+.specialty-icon {
+    color: var(--primary-color);
+}
+
+.footer {
+    background: var(--primary-color);
+}
+
+.contact-icon {
+    background: var(--primary-color);
+}
+
+.read-more {
+    color: var(--primary-color);
+}
+
+.testimonial-card,
+.specialty-card,
+.blog-card,
+.contact-form {
+    background: var(--white);
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+}
+
+.services,
+.contact,
+.specialties {
+    background: var(--grey-light);
+}
+
+/* Update hover states */
+.nav-links a:hover,
+.dropdown-content a:hover {
+    color: var(--primary-light);
+}
+
+.submit-button {
+    background: var(--primary-color);
+}
+
+.submit-button:hover {
+    background: var(--primary-dark);
+}
+
 /* Container Styles */
 .contact-container {
     max-width: 800px;

@@ -788,6 +788,71 @@
                 grid-template-columns: 1fr;
             }
         }
+
+        /* WhatsApp Floating Button CSS */
+        .whatsapp-float {
+            position: fixed;
+            width: 60px;
+            height: 60px;
+            bottom: 40px;
+            right: 40px;
+            background-color: #25d366;
+            color: #FFF;
+            border-radius: 50px;
+            text-align: center;
+            font-size: 30px;
+            box-shadow: 2px 2px 3px #999;
+            z-index: 100;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            animation: whatsappFloat 2s infinite;
+        }
+
+        .whatsapp-float:hover {
+            background-color: #128C7E;
+            transform: translateY(-5px);
+        }
+
+        .tooltip {
+            position: absolute;
+            right: 70px;
+            background: #333;
+            color: white;
+            padding: 5px 10px;
+            border-radius: 5px;
+            font-size: 14px;
+            white-space: nowrap;
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+
+        .whatsapp-float:hover .tooltip {
+            opacity: 1;
+        }
+
+        @keyframes whatsappFloat {
+            0% {
+                transform: translateY(0);
+            }
+            50% {
+                transform: translateY(-5px);
+            }
+            100% {
+                transform: translateY(0);
+            }
+        }
+
+        @media screen and (max-width: 767px) {
+            .whatsapp-float {
+                width: 50px;
+                height: 50px;
+                bottom: 20px;
+                right: 20px;
+                font-size: 25px;
+            }
+        }
     </style>
 </head>
 <body>
@@ -1212,6 +1277,14 @@
             <p>&copy; 2025 Ilahi Healthcare. All rights reserved.</p>
         </div>
     </footer>
+
+    <a href="https://wa.me/971123456789?text=Hi,%20I%20would%20like%20to%20know%20more%20about%20your%20healthcare%20services" 
+       class="whatsapp-float" 
+       target="_blank"
+       rel="noopener noreferrer">
+        <i class="fab fa-whatsapp"></i>
+        <span class="tooltip">Chat with us</span>
+    </a>
 
     <script>
         function handleContactSubmit(event) {

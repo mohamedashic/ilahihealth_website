@@ -1,0 +1,74 @@
+:root {
+    --primary-color: #1d6b92;
+    --primary-dark: #165c7e;
+    --primary-light: #2587b8;
+    --grey-light: #f5f5f5;
+    --grey: #666666;
+    --white: #ffffff;
+}
+
+.specialties {
+    padding: 5rem 0;
+    background: var(--grey-light);
+    margin-top: 80px;
+}
+
+.specialties h2 {
+    text-align: center;
+    color: var(--primary-color);
+    font-size: 2rem;
+    margin-bottom: 1rem;
+}
+
+.specialties-subtitle {
+    text-align: center;
+    color: var(--grey);
+    margin-bottom: 3rem;
+}
+
+.specialties-grid {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 2rem;
+}
+
+.specialty-card {
+    background: var(--white);
+    padding: 2rem;
+    border-radius: 10px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    text-align: center;
+    transition: transform 0.3s;
+    cursor: pointer;
+}
+
+.specialty-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 4px 15px rgba(29, 107, 146, 0.1);
+}
+
+.specialty-icon {
+    font-size: 2.5rem;
+    color: var(--primary-color);
+    margin-bottom: 1rem;
+}
+
+.specialty-name {
+    color: #333;
+    font-weight: 500;
+}
+
+@media (max-width: 768px) {
+    .specialties-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 480px) {
+    .specialties-grid {
+        grid-template-columns: 1fr;
+    }
+}
