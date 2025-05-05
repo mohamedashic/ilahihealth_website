@@ -1,20 +1,26 @@
-/index.html
+form.html
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../css/styles.css">
-    <title>Contact Us</title>
+    <title>Contact Form</title>
     <style>
-        .contact-container {
-            width: 100%;
-            max-width: 450px;
-            margin: 0 auto;
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            background: transparent;
             padding: 20px;
         }
 
         .contact-form {
+            max-width: 400px;
+            margin: 0 auto;
             background: #fff;
             padding: 25px;
             border-radius: 8px;
@@ -80,44 +86,28 @@
     </style>
 </head>
 <body>
-    <header>
-        <!-- Include header component -->
-        <div id="header-placeholder"></div>
-    </header>
-
-    <main>
-        <h1>Contact Us</h1>
-        <div class="contact-container">
-            <form class="contact-form" id="contactForm" onsubmit="return handleSubmit(event)">
-                <div class="form-group">
-                    <label for="name">Full Name</label>
-                    <input type="text" id="name" name="name" required>
-                </div>
-
-                <div class="form-group">
-                    <label for="email">Email Address</label>
-                    <input type="email" id="email" name="email" required>
-                </div>
-
-                <div class="form-group">
-                    <label for="message">Message</label>
-                    <textarea id="message" name="message" required></textarea>
-                </div>
-
-                <button type="submit">Send Message</button>
-                <div class="success-message" id="successMessage">
-                    Your message has been sent successfully!
-                </div>
-            </form>
+    <form class="contact-form" id="contactForm" onsubmit="return handleSubmit(event)">
+        <div class="form-group">
+            <label for="name">Full Name</label>
+            <input type="text" id="name" name="name" required>
         </div>
-    </main>
 
-    <footer>
-        <!-- Include footer component -->
-        <div id="footer-placeholder"></div>
-    </footer>
+        <div class="form-group">
+            <label for="email">Email Address</label>
+            <input type="email" id="email" name="email" required>
+        </div>
 
-    <script src="../js/main.js"></script>
+        <div class="form-group">
+            <label for="message">Message</label>
+            <textarea id="message" name="message" required></textarea>
+        </div>
+
+        <button type="submit">Send Message</button>
+        <div class="success-message" id="successMessage">
+            Your message has been sent successfully!
+        </div>
+    </form>
+
     <script>
         function handleSubmit(event) {
             event.preventDefault();
@@ -125,10 +115,12 @@
             const formData = new FormData(event.target);
             const data = Object.fromEntries(formData);
             
-            // Handle form submission
-            console.log('Form data:', data);
-            // Add your form processing logic here
-            
+            // Send message to parent window
+            window.parent.postMessage({
+                type: 'contact-form',
+                data: data
+            }, '*');
+
             // Show success message
             const form = document.getElementById('contactForm');
             const successMessage = document.getElementById('successMessage');
