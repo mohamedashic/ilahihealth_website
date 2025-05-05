@@ -1,0 +1,37 @@
+# robots.txt for Ilahi Healthcare
+
+# Allow all crawlers
+User-agent: *
+Allow: /
+Allow: /index.html
+Allow: /contact.html
+Allow: /specialties.html
+Allow: /assets/
+
+# Sitemap location
+Sitemap: https://www.ilahihealthcare.com/sitemap.xml
+
+# Disallow admin and private areas
+Disallow: /admin/
+Disallow: /private/
+Disallow: /tmp/
+Disallow: /includes/
+Disallow: /cgi-bin/
+Disallow: /*?*
+
+# Crawl-delay for specific bots
+User-agent: Googlebot
+Crawl-delay: 1
+
+User-agent: bingbot
+Crawl-delay: 1
+
+# Block certain directories from image crawlers
+User-agent: Googlebot-Image
+Disallow: /assets/private-images/
+
+# Block social media crawlers from certain areas
+User-agent: facebookexternalhit
+Allow: /assets/logo/
+Allow: /assets/images/
+Disallow: /private/
