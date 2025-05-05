@@ -1,0 +1,199 @@
+.html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Careers - Ilahi Healthcare</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            line-height: 1.6;
+            color: #333;
+        }
+
+        .hero {
+            background: linear-gradient(rgba(0,74,173,0.9), rgba(0,74,173,0.9)), url('../images/careers-bg.jpg');
+            background-size: cover;
+            color: white;
+            padding: 6rem 2rem;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .benefits {
+            padding: 5rem 2rem;
+            background: #f9f9f9;
+        }
+
+        .benefits-grid {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+
+        .benefit-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            text-align: center;
+        }
+
+        .benefit-icon {
+            font-size: 2.5rem;
+            color: #004aad;
+            margin-bottom: 1rem;
+        }
+
+        .openings {
+            padding: 5rem 2rem;
+        }
+
+        .section-title {
+            text-align: center;
+            color: #004aad;
+            font-size: 2rem;
+            margin-bottom: 3rem;
+        }
+
+        .job-list {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .job-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            margin-bottom: 1.5rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .job-info h3 {
+            color: #004aad;
+            margin-bottom: 0.5rem;
+        }
+
+        .job-meta {
+            color: #666;
+            font-size: 0.9rem;
+        }
+
+        .apply-btn {
+            background: #004aad;
+            color: white;
+            padding: 0.8rem 1.5rem;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+
+        .apply-btn:hover {
+            background: #003580;
+        }
+
+        @media (max-width: 768px) {
+            .job-card {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .apply-btn {
+                margin-top: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <section class="hero">
+        <h1>Join Our Team</h1>
+        <p>Be part of a dynamic healthcare organization committed to excellence in patient care and professional growth.</p>
+    </section>
+
+    <section class="benefits">
+        <h2 class="section-title">Why Work With Us</h2>
+        <div class="benefits-grid">
+            <div class="benefit-card">
+                <i class="fas fa-graduation-cap benefit-icon"></i>
+                <h3>Professional Growth</h3>
+                <p>Continuous learning opportunities and career development programs</p>
+            </div>
+            <div class="benefit-card">
+                <i class="fas fa-heart benefit-icon"></i>
+                <h3>Work-Life Balance</h3>
+                <p>Flexible schedules and comprehensive wellness programs</p>
+            </div>
+            <div class="benefit-card">
+                <i class="fas fa-shield-alt benefit-icon"></i>
+                <h3>Job Security</h3>
+                <p>Stable employment with a growing healthcare leader</p>
+            </div>
+            <div class="benefit-card">
+                <i class="fas fa-medal benefit-icon"></i>
+                <h3>Competitive Benefits</h3>
+                <p>Excellent compensation and comprehensive benefits package</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="openings">
+        <h2 class="section-title">Current Openings</h2>
+        <div class="job-list">
+            <div class="job-card">
+                <div class="job-info">
+                    <h3>Senior Medical Officer</h3>
+                    <div class="job-meta">
+                        <span><i class="fas fa-map-marker-alt"></i> Dubai</span>
+                        <span><i class="fas fa-clock"></i> Full Time</span>
+                    </div>
+                </div>
+                <button class="apply-btn">Apply Now</button>
+            </div>
+            <div class="job-card">
+                <div class="job-info">
+                    <h3>Registered Nurse</h3>
+                    <div class="job-meta">
+                        <span><i class="fas fa-map-marker-alt"></i> Abu Dhabi</span>
+                        <span><i class="fas fa-clock"></i> Full Time</span>
+                    </div>
+                </div>
+                <button class="apply-btn">Apply Now</button>
+            </div>
+            <div class="job-card">
+                <div class="job-info">
+                    <h3>Physiotherapist</h3>
+                    <div class="job-meta">
+                        <span><i class="fas fa-map-marker-alt"></i> Sharjah</span>
+                        <span><i class="fas fa-clock"></i> Part Time</span>
+                    </div>
+                </div>
+                <button class="apply-btn">Apply Now</button>
+            </div>
+        </div>
+    </section>
+</body>
+</html>

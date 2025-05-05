@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Why Choose Us - Ilahi Healthcare</title>
+    <style>
+        .personal-diagram {
+            max-width: 1200px;
+            margin: 4rem auto;
+            padding: 0 20px;
+        }
+
+        .letters-container {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 2rem;
+        }
+
+        .letter {
+            color: #008B9B;
+            font-size: 3rem;
+            font-weight: bold;
+            text-align: center;
+            position: relative;
+        }
+
+        .letter::after {
+            content: '';
+            position: absolute;
+            bottom: -20px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 2px;
+            height: 40px;
+            background-color: #008B9B;
+        }
+
+        .words-container {
+            display: flex;
+            justify-content: space-between;
+            text-align: center;
+        }
+
+        .word {
+            color: #FF6B35;
+            font-size: 1.2rem;
+            font-weight: 500;
+            max-width: 120px;
+            line-height: 1.4;
+        }
+
+        @media (max-width: 768px) {
+            .letters-container {
+                flex-wrap: wrap;
+                gap: 2rem;
+            }
+
+            .words-container {
+                flex-wrap: wrap;
+                gap: 2rem;
+            }
+
+            .letter, .word {
+                flex: 1 1 calc(25% - 1rem);
+            }
+        }
+
+        @media (max-width: 480px) {
+            .letter, .word {
+                flex: 1 1 calc(50% - 1rem);
+            }
+        }
+
+        .item-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            flex: 1;
+        }
+
+        .explanation {
+            color: #666;
+            font-size: 0.9rem;
+            margin-top: 1rem;
+            text-align: center;
+            max-width: 200px;
+            line-height: 1.5;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .item-container:hover .explanation {
+            opacity: 1;
+        }
+    </style>
+</head>
+<body>
+    <section class="personal-diagram">
+        <div class="letters-container">
+            <div class="item-container">
+                <div class="letter">P</div>
+                <div class="word">Personalised</div>
+                <div class="explanation">Tailored healthcare solutions designed specifically for each patient's unique needs and conditions.</div>
+            </div>
+            <div class="item-container">
+                <div class="letter">E</div>
+                <div class="word">Effective</div>
+                <div class="explanation">Evidence-based treatments and procedures that deliver consistent, positive outcomes.</div>
+            </div>
+            <div class="item-container">
+                <div class="letter">R</div>
+                <div class="word">Rapid Recovery</div>
+                <div class="explanation">Advanced treatment methods focused on minimizing recovery time and getting you back to health faster.</div>
+            </div>
+            <div class="item-container">
+                <div class="letter">S</div>
+                <div class="word">Safety</div>
+                <div class="explanation">Unwavering commitment to patient safety with strict protocols and state-of-the-art facilities.</div>
+            </div>
+            <div class="item-container">
+                <div class="letter">O</div>
+                <div class="word">Objective</div>
+                <div class="explanation">Clear, measurable goals for treatment success with transparent communication throughout your journey.</div>
+            </div>
+            <div class="item-container">
+                <div class="letter">N</div>
+                <div class="word">Nurture</div>
+                <div class="explanation">Compassionate care that supports both physical and emotional well-being during treatment.</div>
+            </div>
+            <div class="item-container">
+                <div class="letter">A</div>
+                <div class="word">Attention</div>
+                <div class="explanation">Dedicated medical professionals who provide focused, individual attention to every patient.</div>
+            </div>
+            <div class="item-container">
+                <div class="letter">L</div>
+                <div class="word">Loyalty</div>
+                <div class="explanation">Building lasting relationships with our patients through trust, reliability, and consistent quality care.</div>
+            </div>
+        </div>
+    </section>
+</body>
+</html>
