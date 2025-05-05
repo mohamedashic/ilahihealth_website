@@ -3,13 +3,27 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ilahi Healthcare - Your Health, Our Priority</title>
+    
+    <!-- SEO Meta Tags -->
+    <title>Ilahi Healthcare - Home Medical Services in Mumbai & Puducherry | 24/7 Care</title>
+    <meta name="description" content="Expert home healthcare services in Mumbai & Puducherry. Get doctors, nurses & physiotherapists at your doorstep. 24/7 medical care with free consultation. Book now!">
+    <meta name="keywords" content="home healthcare, doctor home visit, nursing care, physiotherapy, medical equipment, Mumbai healthcare, Puducherry medical services">
+    
+    <!-- Open Graph Tags -->
+    <meta property="og:title" content="Ilahi Healthcare - Professional Home Medical Services">
+    <meta property="og:description" content="Get expert medical care at your doorstep in Mumbai & Puducherry. 24/7 services available.">
+    <meta property="og:image" content="assets/logo/logo.jpg">
+    <meta property="og:url" content="https://www.ilahihealthcare.com">
+
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://www.ilahihealthcare.com">
+
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link rel="stylesheet" href="index.css">
 </head>
 <body>
-    <header class="header">
-        <nav class="nav-container">
+    <header class="header" role="banner">
+        <nav class="nav-container" role="navigation" aria-label="Main navigation">
             <div class="logo">
                 <a href="#home">
                     <img src="assets/logo/logo.jpg" alt="Ilahi Healthcare Logo" class="logo-img">
@@ -41,165 +55,167 @@
         </nav>
     </header>
 
-    <div class="announcement-banner">
-        <div class="announcement-content">
-            <i class="fas fa-bullhorn"></i>
-            <p>Now offering 365 Days home visits! Call us at <a href="tel:+918169044026">+91 816 904 4026</a></p>
+    <main role="main">
+        <div class="announcement-banner">
+            <div class="announcement-content">
+                <i class="fas fa-bullhorn"></i>
+                <p>Now offering 365 Days home visits! Call us at <a href="tel:+918169044026">+91 816 904 4026</a></p>
+            </div>
+            <button class="close-banner" aria-label="Close announcement">
+                <i class="fas fa-times"></i>
+            </button>
         </div>
-        <button class="close-banner" aria-label="Close announcement">
-            <i class="fas fa-times"></i>
-        </button>
-    </div>
 
-    <section class="hero" id="home">
-        <div class="hero-content">
-            <h1>We Bring the Clinic to Your Doorstep</h1>
-            <h2 class="hero-subtitle">From checkups to treatments, experience compassionate, professional care without leaving your space.</h2>
-            <p>Your Health, Our Priority - Delivering Expert Medical Care at Your Comfort</p>
-            <div class="cta-group">
-                <a href="contact.html" class="cta-button primary">Book Home Visit</a>
-                <a href="#services" class="cta-button secondary">View Services</a>
-            </div>
-        </div>
-    </section>
-
-    <section class="quick-services">
-        <h2 class="section-title">Our Services</h2>
-        <div class="services-grid">
-            <div class="service-item">
-                <i class="fas fa-user-md"></i>
-                <h3>Doctor</h3>
-                <p>Expert physicians at your doorstep</p>
-            </div>
-            
-            <div class="service-item">
-                <i class="fas fa-user-nurse"></i>
-                <h3>Nurse</h3>
-                <p>Professional nursing care at home</p>
-            </div>
-            
-            <div class="service-item">
-                <i class="fas fa-walking"></i>
-                <h3>Physio</h3>
-                <p>Rehabilitation in your comfort</p>
-            </div>
-            
-            <div class="service-item">
-                <i class="fas fa-flask"></i>
-                <h3>Lab</h3>
-                <p>Home sample collection & testing</p>
-            </div>
-            
-            <div class="service-item">
-                <i class="fas fa-medkit"></i>
-                <h3>Equipment</h3>
-                <p>Medical equipment rental & setup</p>
-            </div>
-        </div>
-    </section>
-
-    <section class="stats">
-        <div class="stats-container">
-            <div class="stat-item">
-                <div class="stat-number">
-                    <span class="counter" data-target="20000">0</span>+
+        <section class="hero" id="home">
+            <div class="hero-content">
+                <h1>We Bring the Clinic to Your Doorstep</h1>
+                <h2 class="hero-subtitle">From checkups to treatments, experience compassionate, professional care without leaving your space.</h2>
+                <p>Your Health, Our Priority - Delivering Expert Medical Care at Your Comfort</p>
+                <div class="cta-group">
+                    <a href="contact.html" class="cta-button primary">Book Home Visit</a>
+                    <a href="#services" class="cta-button secondary">View Services</a>
                 </div>
-                <div class="stat-text">Happy Customers</div>
             </div>
-            <div class="stat-item">
-                <div class="stat-number">
-                    <span class="counter" data-target="200">0</span>+
-                </div>
-                <div class="stat-text">Doctors</div>
-            </div>
-            <div class="stat-item">
-                <div class="stat-number">
-                    <span class="counter" data-target="25">0</span>+
-                </div>
-                <div class="stat-text">Specialities</div>
-            </div>
-            <div class="stat-item">
-                <div class="stat-number">
-                    <span class="counter" data-target="4.2">0</span>/5
-                </div>
-                <div class="stat-text">Customer Rating</div>
-            </div>
-        </div>
-    </section>
+        </section>
 
-    <section class="services" id="services">
-        <div class="services-container">
-            <div class="service-card">
-                <h3>Primary Care</h3>
-                <p>Comprehensive healthcare services for you and your family</p>
+        <section class="quick-services">
+            <h2 class="section-title">Our Services</h2>
+            <div class="services-grid">
+                <div class="service-item">
+                    <i class="fas fa-user-md"></i>
+                    <h3>Doctor</h3>
+                    <p>Expert physicians at your doorstep</p>
+                </div>
+                
+                <div class="service-item">
+                    <i class="fas fa-user-nurse"></i>
+                    <h3>Nurse</h3>
+                    <p>Professional nursing care at home</p>
+                </div>
+                
+                <div class="service-item">
+                    <i class="fas fa-walking"></i>
+                    <h3>Physio</h3>
+                    <p>Rehabilitation in your comfort</p>
+                </div>
+                
+                <div class="service-item">
+                    <i class="fas fa-flask"></i>
+                    <h3>Lab</h3>
+                    <p>Home sample collection & testing</p>
+                </div>
+                
+                <div class="service-item">
+                    <i class="fas fa-medkit"></i>
+                    <h3>Equipment</h3>
+                    <p>Medical equipment rental & setup</p>
+                </div>
             </div>
-            <div class="service-card">
-                <h3>Specialized Treatment</h3>
-                <p>Expert care from experienced specialists</p>
-            </div>
-            <div class="service-card">
-                <h3>Emergency Care</h3>
-                <p>24/7 emergency medical services</p>
-            </div>
-        </div>
-    </section>
+        </section>
 
-    <section class="about" id="about">
-        <div class="about-container">
-            <div class="about-content">
-                <h2>About Ilahi Healthcare</h2>
-                <p>At Ilahi Healthcare, we're committed to providing exceptional medical care with a personal touch. Our state-of-the-art facilities and experienced medical professionals ensure that you receive the highest quality healthcare services.</p>
-                <br>
-                <p>With over 20 years of experience, we've been serving our community with dedication and compassion. Our team of specialists works together to deliver comprehensive care tailored to your individual needs.</p>
-                <br>
-                <p>We believe in making healthcare accessible and comfortable for everyone. Our patient-first approach means we take the time to listen and understand your concerns.</p>
+        <section class="stats">
+            <div class="stats-container">
+                <div class="stat-item">
+                    <div class="stat-number">
+                        <span class="counter" data-target="20000">0</span>+
+                    </div>
+                    <div class="stat-text">Happy Customers</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">
+                        <span class="counter" data-target="200">0</span>+
+                    </div>
+                    <div class="stat-text">Doctors</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">
+                        <span class="counter" data-target="25">0</span>+
+                    </div>
+                    <div class="stat-text">Specialities</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">
+                        <span class="counter" data-target="4.2">0</span>/5
+                    </div>
+                    <div class="stat-text">Customer Rating</div>
+                </div>
             </div>
-            <img src="images/about-healthcare.jpg" alt="Medical Team" class="about-image">
-        </div>
-    </section>
+        </section>
 
-    <section class="testimonials" id="testimonials">
-        <h2>What Our Patients Say</h2>
-        <div class="testimonials-container">
-            <div class="testimonial-card">
-                <div class="quote-icon">"</div>
-                <p class="testimonial-quote">The care and attention I received at Ilahi Healthcare was exceptional. The doctors took the time to listen and explain everything clearly.</p>
-                <div class="testimonial-author">
-                    <img src="images/patient1.jpg" alt="Sarah Johnson" class="author-image">
-                    <div class="author-info">
-                        <h4>Sarah Johnson</h4>
-                        <p>Patient since 2021</p>
+        <section class="services" id="services">
+            <div class="services-container">
+                <div class="service-card">
+                    <h3>Primary Care</h3>
+                    <p>Comprehensive healthcare services for you and your family</p>
+                </div>
+                <div class="service-card">
+                    <h3>Specialized Treatment</h3>
+                    <p>Expert care from experienced specialists</p>
+                </div>
+                <div class="service-card">
+                    <h3>Emergency Care</h3>
+                    <p>24/7 emergency medical services</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="about" id="about">
+            <div class="about-container">
+                <div class="about-content">
+                    <h2>About Ilahi Healthcare</h2>
+                    <p>At Ilahi Healthcare, we're committed to providing exceptional medical care with a personal touch. Our state-of-the-art facilities and experienced medical professionals ensure that you receive the highest quality healthcare services.</p>
+                    <br>
+                    <p>With over 20 years of experience, we've been serving our community with dedication and compassion. Our team of specialists works together to deliver comprehensive care tailored to your individual needs.</p>
+                    <br>
+                    <p>We believe in making healthcare accessible and comfortable for everyone. Our patient-first approach means we take the time to listen and understand your concerns.</p>
+                </div>
+                <img src="images/about-healthcare.jpg" alt="Medical Team" class="about-image">
+            </div>
+        </section>
+
+        <section class="testimonials" id="testimonials">
+            <h2>What Our Patients Say</h2>
+            <div class="testimonials-container">
+                <div class="testimonial-card">
+                    <div class="quote-icon">"</div>
+                    <p class="testimonial-quote">The care and attention I received at Ilahi Healthcare was exceptional. The doctors took the time to listen and explain everything clearly.</p>
+                    <div class="testimonial-author">
+                        <img src="images/patient1.jpg" alt="Sarah Johnson" class="author-image">
+                        <div class="author-info">
+                            <h4>Sarah Johnson</h4>
+                            <p>Patient since 2021</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="testimonial-card">
+                    <div class="quote-icon">"</div>
+                    <p class="testimonial-quote">State-of-the-art facilities combined with compassionate care. The staff made me feel comfortable throughout my treatment.</p>
+                    <div class="testimonial-author">
+                        <img src="images/patient2.jpg" alt="Michael Chen" class="author-image">
+                        <div class="author-info">
+                            <h4>Michael Chen</h4>
+                            <p>Patient since 2020</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="testimonial-card">
+                    <div class="quote-icon">"</div>
+                    <p class="testimonial-quote">I'm grateful for the excellent care my family has received at Ilahi Healthcare. The doctors and staff are truly dedicated to patient well-being.</p>
+                    <div class="testimonial-author">
+                        <img src="images/patient3.jpg" alt="Emily Rodriguez" class="author-image">
+                        <div class="author-info">
+                            <h4>Emily Rodriguez</h4>
+                            <p>Patient since 2022</p>
+                        </div>
                     </div>
                 </div>
             </div>
+        </section>
+    </main>
 
-            <div class="testimonial-card">
-                <div class="quote-icon">"</div>
-                <p class="testimonial-quote">State-of-the-art facilities combined with compassionate care. The staff made me feel comfortable throughout my treatment.</p>
-                <div class="testimonial-author">
-                    <img src="images/patient2.jpg" alt="Michael Chen" class="author-image">
-                    <div class="author-info">
-                        <h4>Michael Chen</h4>
-                        <p>Patient since 2020</p>
-                    </div>
-                </div>
-            </div>
-
-            <div class="testimonial-card">
-                <div class="quote-icon">"</div>
-                <p class="testimonial-quote">I'm grateful for the excellent care my family has received at Ilahi Healthcare. The doctors and staff are truly dedicated to patient well-being.</p>
-                <div class="testimonial-author">
-                    <img src="images/patient3.jpg" alt="Emily Rodriguez" class="author-image">
-                    <div class="author-info">
-                        <h4>Emily Rodriguez</h4>
-                        <p>Patient since 2022</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <footer class="footer">
+    <footer role="contentinfo" class="footer">
         <div class="footer-container">
             <div class="footer-section">
                 <h3>Patient Resources</h3>
@@ -237,6 +253,28 @@
             <p>&copy; 2025 Ilahi Healthcare. All rights reserved.</p>
         </div>
     </footer>
+
+    <!-- Schema Markup -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "MedicalBusiness",
+        "name": "Ilahi Healthcare",
+        "image": "assets/logo/logo.jpg",
+        "description": "Professional home healthcare services in Mumbai & Puducherry",
+        "address": {
+            "@type": "PostalAddress",
+            "streetAddress": "1, Seawoods Station Rd, Nerul East",
+            "addressLocality": "Mumbai",
+            "addressRegion": "Maharashtra",
+            "postalCode": "400706",
+            "addressCountry": "IN"
+        },
+        "telephone": "+91-816-904-4026",
+        "openingHours": "Mo-Su 00:00-24:00",
+        "priceRange": "₹₹"
+    }
+    </script>
 
     <script src="index.js"></script>
 </body>
