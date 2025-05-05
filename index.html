@@ -3,15 +3,38 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../css/styles.css">
     <title>Support Ticket</title>
     <style>
-       
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            background-color: #f5f5f5;
+            color: #333;
+            line-height: 1.6;
+        }
+
+        .contact-container {
+            max-width: 800px;
+            margin: 2rem auto;
+            padding: 0 20px;
+        }
+
+        h1 {
+            text-align: center;
+            color: #2196F3;
+            margin-bottom: 2rem;
+            font-size: 2rem;
+        }
 
         .ticket-form {
             background: #fff;
-            padding: 25px;
-            border-radius: 8px;
+            padding: 2rem;
+            border-radius: 10px;
             box-shadow: 0 2px 10px rgba(0,0,0,0.1);
         }
 
@@ -25,7 +48,15 @@
             flex: 1;
         }
 
-        select {
+        label {
+            display: block;
+            margin-bottom: 8px;
+            color: #333;
+            font-weight: 500;
+            font-size: 14px;
+        }
+
+        input, select, textarea {
             width: 100%;
             padding: 12px;
             border: 1.5px solid #e0e0e0;
@@ -35,22 +66,160 @@
             background-color: white;
         }
 
-        select:focus {
+        input:focus, select:focus, textarea:focus {
             outline: none;
             border-color: #2196F3;
             box-shadow: 0 0 0 2px rgba(33,150,243,0.1);
+        }
+
+        textarea {
+            min-height: 120px;
+            resize: vertical;
         }
 
         .ticket-id {
             color: #666;
             font-size: 14px;
             margin-bottom: 20px;
+            padding: 8px;
+            background: #f8f9fa;
+            border-radius: 4px;
+            border: 1px dashed #dee2e6;
+        }
+
+        button {
+            width: 100%;
+            padding: 12px;
+            background: #2196F3;
+            color: white;
+            border: none;
+            border-radius: 6px;
+            font-size: 16px;
+            font-weight: 500;
+            cursor: pointer;
+            transition: background 0.3s ease;
+        }
+
+        button:hover {
+            background: #1976D2;
+        }
+
+        button:active {
+            transform: translateY(1px);
+        }
+
+        .success-message {
+            display: none;
+            text-align: center;
+            color: #4CAF50;
+            background: #E8F5E9;
+            padding: 15px;
+            border-radius: 6px;
+            margin-top: 20px;
+            font-size: 16px;
+            border: 1px solid #A5D6A7;
+            position: fixed;
+            top: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 1001;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            animation: slideIn 0.3s ease-out;
+        }
+
+        @keyframes slideIn {
+            from {
+                top: -100px;
+                opacity: 0;
+            }
+            to {
+                top: 20px;
+                opacity: 1;
+            }
+        }
+
+        .captcha-container {
+            margin: 20px 0;
+        }
+
+        .captcha {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 10px;
+        }
+
+        #captchaCanvas {
+            background: #f0f0f0;
+            border-radius: 4px;
+        }
+
+        .refresh-captcha {
+            width: auto;
+            padding: 8px 12px;
+            font-size: 18px;
+            background: #e0e0e0;
+            color: #333;
+        }
+
+        .refresh-captcha:hover {
+            background: #d0d0d0;
+        }
+
+        @media (max-width: 600px) {
+            .form-row {
+                flex-direction: column;
+                gap: 15px;
+            }
+            
+            .contact-container {
+                padding: 0 15px;
+            }
+            
+            .ticket-form {
+                padding: 1.5rem;
+            }
+        }
+
+        .loader-container {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(255, 255, 255, 0.9);
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+        }
+
+        .loader {
+            width: 48px;
+            height: 48px;
+            border: 5px solid #2196F3;
+            border-bottom-color: transparent;
+            border-radius: 50%;
+            animation: rotation 1s linear infinite;
+        }
+
+        @keyframes rotation {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        .hide {
+            display: none !important;
         }
     </style>
     <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-app-compat.js"></script>
     <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-firestore-compat.js"></script>
 </head>
 <body>
+    <div class="loader-container" id="loaderContainer">
+        <div class="loader"></div>
+    </div>
+
     <header>
         <div id="header-placeholder"></div>
     </header>
@@ -61,6 +230,22 @@
             <form class="ticket-form" id="ticketForm" onsubmit="return handleSubmit(event)">
                 <div class="ticket-id" id="ticketIdContainer" style="display: none;">
                     Ticket ID: <span id="ticketIdSpan"></span>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="name">Full Name</label>
+                        <input type="text" id="name" name="name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="phone">Phone Number</label>
+                        <input type="tel" id="phone" name="phone" pattern="[0-9]{10}" title="Please enter valid 10-digit phone number" required>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="email">Email Address</label>
+                    <input type="email" id="email" name="email" required>
                 </div>
                 
                 <div class="form-row">
@@ -74,15 +259,6 @@
                             <option value="Other">Other</option>
                         </select>
                     </div>
-                    <div class="form-group">
-                        <label for="priority">Priority</label>
-                        <select id="priority" name="priority" required>
-                            <option value="">Select Priority</option>
-                            <option value="Low">Low</option>
-                            <option value="Medium">Medium</option>
-                            <option value="High">High</option>
-                        </select>
-                    </div>
                 </div>
 
                 <div class="form-group">
@@ -93,6 +269,14 @@
                 <div class="form-group">
                     <label for="description">Description</label>
                     <textarea id="description" name="description" required></textarea>
+                </div>
+
+                <div class="form-group captcha-container">
+                    <div class="captcha" id="captcha">
+                        <canvas id="captchaCanvas" width="200" height="50"></canvas>
+                        <button type="button" class="refresh-captcha" id="refreshCaptcha">↻</button>
+                    </div>
+                    <input type="text" id="captchaInput" name="captcha" placeholder="Enter CAPTCHA" required>
                 </div>
 
                 <button type="submit">Create Ticket</button>
@@ -118,6 +302,53 @@
         firebase.initializeApp(firebaseConfig);
         const db = firebase.firestore();
 
+        let captchaText = '';
+
+        function generateCaptcha() {
+            const canvas = document.getElementById('captchaCanvas');
+            const ctx = canvas.getContext('2d');
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+            // Generate random string
+            const chars = 'ABCDEFGHJKLMNPQRSTUVWXYZabcdefghijkmnpqrstuvwxyz23456789';
+            captchaText = '';
+            for (let i = 0; i < 6; i++) {
+                captchaText += chars.charAt(Math.floor(Math.random() * chars.length));
+            }
+
+            // Draw background
+            ctx.fillStyle = '#f0f0f0';
+            ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+            // Draw text
+            ctx.font = 'bold 30px sans-serif';
+            ctx.fillStyle = '#333';
+            ctx.textBaseline = 'middle';
+            ctx.textAlign = 'center';
+
+            // Add noise
+            for (let i = 0; i < 50; i++) {
+                ctx.beginPath();
+                ctx.moveTo(Math.random() * canvas.width, Math.random() * canvas.height);
+                ctx.lineTo(Math.random() * canvas.width, Math.random() * canvas.height);
+                ctx.strokeStyle = '#666';
+                ctx.stroke();
+            }
+
+            // Add distortion
+            const chars_array = captchaText.split('');
+            chars_array.forEach((char, i) => {
+                ctx.save();
+                ctx.translate(
+                    canvas.width/2 - (chars_array.length/2 - i) * 25,
+                    canvas.height/2
+                );
+                ctx.rotate((Math.random() - 0.5) * 0.4);
+                ctx.fillText(char, 0, 0);
+                ctx.restore();
+            });
+        }
+
         function generateTicketId() {
             const prefix = 'TKT';
             const timestamp = Date.now().toString().slice(-6);
@@ -128,34 +359,50 @@
         async function handleSubmit(event) {
             event.preventDefault();
             
-            const ticketId = generateTicketId();
-            const formData = new FormData(event.target);
-            const data = {
-                ...Object.fromEntries(formData),
-                ticketId: ticketId,
-                status: 'Open',
-                createdAt: firebase.firestore.FieldValue.serverTimestamp(),
-                updatedAt: firebase.firestore.FieldValue.serverTimestamp(),
-                userEmail: 'ashicmohamed@gmail.com',
-                userId: '8QROsYef2UNwpQUPVJelmH4sGys1',
-                comments: []
-            };
+            const captchaInput = document.getElementById('captchaInput').value;
+            if (captchaInput.toLowerCase() !== captchaText.toLowerCase()) {
+                alert('Invalid CAPTCHA. Please try again.');
+                generateCaptcha();
+                document.getElementById('captchaInput').value = '';
+                return false;
+            }
+
+            // Show loader and hide form
+            const loaderContainer = document.getElementById('loaderContainer');
+            const form = document.getElementById('ticketForm');
+            const successMessage = document.getElementById('successMessage');
+            
+            loaderContainer.style.display = 'flex';
+            form.style.opacity = '0.5';
 
             try {
+                const ticketId = generateTicketId();
+                const formData = new FormData(event.target);
+                const data = {
+                    ...Object.fromEntries(formData),
+                    ticketId: ticketId,
+                    status: 'Open',
+                    priority: 'Medium',
+                    createdAt: firebase.firestore.FieldValue.serverTimestamp(),
+                    updatedAt: firebase.firestore.FieldValue.serverTimestamp(),
+                    userEmail: formData.get('email'),
+                    userId: '8QROsYef2UNwpQUPVJelmH4sGys1',
+                    comments: []
+                };
+
                 // Add document to Firestore
                 await db.collection('support_tickets').doc(data.ticketId).set(data);
                 
-                // Show ticket ID and success message
-                const ticketIdContainer = document.getElementById('ticketIdContainer');
-                const ticketIdSpan = document.getElementById('ticketIdSpan');
-                const successMessage = document.getElementById('successMessage');
-                const form = document.getElementById('ticketForm');
-                
-                ticketIdSpan.textContent = ticketId;
-                ticketIdContainer.style.display = 'block';
+                // Update UI to show success
+                loaderContainer.style.display = 'none';
+                form.style.opacity = '1';
                 successMessage.style.display = 'block';
-                form.reset();
                 
+                // Reset form
+                form.reset();
+                generateCaptcha();
+
+                // Hide success message after 3 seconds
                 setTimeout(() => {
                     successMessage.style.display = 'none';
                 }, 3000);
@@ -163,10 +410,17 @@
             } catch (error) {
                 console.error('Error saving ticket:', error);
                 alert('Error creating ticket. Please try again.');
+                loaderContainer.style.display = 'none';
+                form.style.opacity = '1';
             }
 
             return false;
         }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            generateCaptcha();
+            document.getElementById('refreshCaptcha').addEventListener('click', generateCaptcha);
+        });
     </script>
 </body>
 </html>
