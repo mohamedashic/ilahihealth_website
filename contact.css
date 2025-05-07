@@ -7,40 +7,15 @@
     --white: #ffffff;
 }
 
-/* Override and extend header styles */
+/* Remove any existing header styles from contact.css */
+/* Only keep contact page specific styles */
+
 body {
-    padding-top: 120px; /* Account for fixed header + announcement banner */
-}
-
-.header {
-    position: fixed;
-    top: 39px; /* Height of announcement banner */
-    left: 0;
-    right: 0;
-    z-index: 1000;
-    background: var(--primary-color);
-    padding: 1rem 0;
-}
-
-.announcement-banner {
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    z-index: 1001;
-}
-
-/* Adjust spacing when announcement is closed */
-.announcement-banner.hidden + .header {
-    top: 0;
-}
-
-.announcement-banner.hidden ~ main {
-    padding-top: 80px;
+    padding-top: 45px; /* Match header height from index.css */
 }
 
 .contact-page {
-    padding: 2rem 0;
+    padding: 2rem 1rem;
     background: var(--white);
     padding-top: 2rem;
 }
@@ -143,6 +118,22 @@ body {
     padding: 2rem;
     border-radius: 10px;
     box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+}
+
+.form-header {
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.form-header h2 {
+    color: var(--primary-color);
+    font-size: 1.8rem;
+    margin-bottom: 0.5rem;
+}
+
+.form-header p {
+    color: var(--grey);
+    font-size: 1rem;
 }
 
 .form-row {
