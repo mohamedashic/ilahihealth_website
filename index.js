@@ -67,3 +67,50 @@ document.addEventListener('click', (e) => {
         dropdowns.forEach(dropdown => dropdown.classList.remove('active'));
     }
 });
+
+// Testimonial slider
+document.addEventListener('DOMContentLoaded', function() {
+    const slides = document.querySelectorAll('.testimonial-slide');
+    const dots = document.querySelector('.testimonial-dots');
+    const prevBtn = document.querySelector('.prev-btn');
+    const nextBtn = document.querySelector('.next-btn');
+    let currentSlide = 0;
+
+    // Create dots
+    slides.forEach((_, index) => {
+        const dot = document.createElement('div');
+        dot.classList.add('dot');
+        if (index === 0) dot.classList.add('active');
+        dot.addEventListener('click', () => goToSlide(index));
+        dots.appendChild(dot);
+    });
+
+    // Show first slide
+    slides[0].classList.add('active');
+
+    // Next slide
+    function nextSlide() {
+        goToSlide((currentSlide + 1) % slides.length);
+    }
+
+    // Previous slide
+    function prevSlide() {
+        goToSlide((currentSlide - 1 + slides.length) % slides.length);
+    }
+
+    // Go to specific slide
+    function goToSlide(n) {
+        slides[currentSlide].classList.remove('active');
+        document.querySelectorAll('.dot')[currentSlide].classList.remove('active');
+        currentSlide = n;
+        slides[currentSlide].classList.add('active');
+        document.querySelectorAll('.dot')[currentSlide].classList.add('active');
+    }
+
+    // Event listeners
+    prevBtn.addEventListener('click', prevSlide);
+    nextBtn.addEventListener('click', nextSlide);
+
+    // Auto advance slides
+    setInterval(nextSlide, 5000);
+});

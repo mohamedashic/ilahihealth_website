@@ -5,88 +5,137 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Contact Us - Ilahi Healthcare</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="index.css">
     <link rel="stylesheet" href="contact.css">
 </head>
 <body>
-    <section class="contact-page" id="contact">
-        <div class="contact-header">
-            <h1>Get in Touch</h1>
-            <p>We're here to help and answer any questions you might have.</p>
+    <!-- Header Section -->
+    <header class="header" role="banner">
+        <nav class="nav-container" role="navigation" aria-label="Main navigation">
+            <div class="logo">
+                <a href="index.html">
+                    <img src="assets/logo/logo.jpg" alt="Ilahi Healthcare Logo" class="logo-img">
+                    <span class="logo-text">Ilahi Healthcare</span>
+                </a>
+            </div>
+            <button class="menu-toggle" aria-label="Toggle navigation menu">
+                <i class="fas fa-bars"></i>
+            </button>
+            <div class="nav-links">
+                <a href="index.html#home">Home</a>
+                <div class="dropdown">
+                    <a href="index.html#services">Services</a>
+                    <div class="dropdown-content">
+                        <a href="index.html#primary-care">Primary Care</a>
+                        <a href="index.html#specialized-care">Specialized Care</a>
+                        <a href="index.html#emergency-care">Emergency Care</a>
+                        <a href="index.html#diagnostics">Diagnostics & Testing</a>
+                        <a href="index.html#preventive-care">Preventive Care</a>
+                        <a href="index.html#surgery">Surgery</a>
+                        <a href="index.html#rehabilitation">Rehabilitation</a>
+                        <a href="index.html#mental-health">Mental Health</a>
+                    </div>
+                </div>
+                <a href="index.html#about">About</a>
+                <a href="index.html#testimonials">Testimonials</a>
+                <a href="contact.html">Contact</a>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Announcement Banner -->
+    <div class="announcement-banner">
+        <div class="announcement-content">
+            <i class="fas fa-bullhorn"></i>
+            <p>Now offering 365 Days home visits! Call us at <a href="tel:+918169044026">+91 816 904 4026</a></p>
         </div>
+        <button class="close-banner" aria-label="Close announcement">
+            <i class="fas fa-times"></i>
+        </button>
+    </div>
 
-        <div class="contact-container">
-            <!-- Quick Contact Strip -->
-            <div class="quick-contact">
-                <div class="quick-contact-item">
-                    <i class="fas fa-phone-alt"></i>
-                    <a href="tel:+918169044026">+91 816 904 4026</a>
-                </div>
-                <div class="quick-contact-item">
-                    <i class="fas fa-envelope"></i>
-                    <a href="mailto:ilahihealthcare@gmail.com">ilahihealthcare@gmail.com</a>
-                </div>
-                <div class="quick-contact-item">
-                    <i class="fas fa-globe"></i>
-                    <a href="https://www.ilahihealthcare.com" target="_blank">www.ilahihealthcare.com</a>
-                </div>
+    <main role="main">
+        <section class="contact-page" id="contact">
+            <div class="contact-header">
+                <h1>Get in Touch</h1>
+                <p>We're here to help and answer any questions you might have.</p>
             </div>
 
-            <!-- Location Cards -->
-            <div class="location-cards">
-                <div class="location-card mumbai">
-                    <div class="location-header">
-                        <i class="fas fa-map-marker-alt"></i>
-                        <h3>Mumbai Office</h3>
+            <div class="contact-container">
+                <!-- Quick Contact Strip -->
+                <div class="quick-contact">
+                    <div class="quick-contact-item">
+                        <i class="fas fa-phone-alt"></i>
+                        <a href="tel:+918169044026">+91 816 904 4026</a>
                     </div>
-                    <p>1, Seawoods Station Rd, Nerul East,<br>Sector 40, Navi Mumbai - 400706</p>
-                </div>
-                
-                <div class="location-card puducherry">
-                    <div class="location-header">
-                        <i class="fas fa-building"></i>
-                        <h3>Puducherry Office</h3>
+                    <div class="quick-contact-item">
+                        <i class="fas fa-envelope"></i>
+                        <a href="mailto:ilahihealthcare@gmail.com">ilahihealthcare@gmail.com</a>
                     </div>
-                    <p>74/A, 1st Cross St, Sankardass Swamigal Nagar,<br>Lawspet, Puducherry - 605008</p>
+                    <div class="quick-contact-item">
+                        <i class="fas fa-globe"></i>
+                        <a href="https://www.ilahihealthcare.com" target="_blank">www.ilahihealthcare.com</a>
+                    </div>
                 </div>
-            </div>
 
-            <!-- Form Section -->
-            <div class="contact-form-section">
-                <form class="contact-form" id="contactForm">
-                    <div class="form-row">
-                        <div class="form-group">
-                            <label for="name">Full Name</label>
-                            <input type="text" id="name" name="name" placeholder="Your name" required>
+                <!-- Location Cards -->
+                <div class="location-cards">
+                    <div class="location-card mumbai">
+                        <div class="location-header">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <h3>Mumbai Office</h3>
+                        </div>
+                        <p>1, Seawoods Station Rd, Nerul East,<br>Sector 40, Navi Mumbai - 400706</p>
+                    </div>
+                    
+                    <div class="location-card puducherry">
+                        <div class="location-header">
+                            <i class="fas fa-building"></i>
+                            <h3>Puducherry Office</h3>
+                        </div>
+                        <p>74/A, 1st Cross St, Sankardass Swamigal Nagar,<br>Lawspet, Puducherry - 605008</p>
+                    </div>
+                </div>
+
+                <!-- Form Section -->
+                <div class="contact-form-section">
+                    <form class="contact-form" id="contactForm">
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="name">Full Name</label>
+                                <input type="text" id="name" name="name" placeholder="Your name" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="phone">Phone Number</label>
+                                <input type="tel" id="phone" name="phone" placeholder="Your phone number" required>
+                            </div>
                         </div>
                         <div class="form-group">
-                            <label for="phone">Phone Number</label>
-                            <input type="tel" id="phone" name="phone" placeholder="Your phone number" required>
+                            <label for="email">Email Address</label>
+                            <input type="email" id="email" name="email" placeholder="Your email" required>
                         </div>
-                    </div>
-                    <div class="form-group">
-                        <label for="email">Email Address</label>
-                        <input type="email" id="email" name="email" placeholder="Your email" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="subject">Subject</label>
-                        <select id="subject" name="subject" required>
-                            <option value="">Select a subject</option>
-                            <option value="general">General Inquiry</option>
-                            <option value="appointment">Appointment Request</option>
-                            <option value="feedback">Feedback</option>
-                            <option value="other">Other</option>
-                        </select>
-                    </div>
-                    <div class="form-group">
-                        <label for="message">Message</label>
-                        <textarea id="message" name="message" placeholder="How can we help you?" required></textarea>
-                    </div>
-                    <button type="submit" class="submit-button">Send Message</button>
-                </form>
+                        <div class="form-group">
+                            <label for="subject">Subject</label>
+                            <select id="subject" name="subject" required>
+                                <option value="">Select a subject</option>
+                                <option value="general">General Inquiry</option>
+                                <option value="appointment">Appointment Request</option>
+                                <option value="feedback">Feedback</option>
+                                <option value="other">Other</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="message">Message</label>
+                            <textarea id="message" name="message" placeholder="How can we help you?" required></textarea>
+                        </div>
+                        <button type="submit" class="submit-button">Send Message</button>
+                    </form>
+                </div>
             </div>
-        </div>
-    </section>
+        </section>
+    </main>
 
+    <script src="index.js"></script>
     <script src="contact.js"></script>
 </body>
 </html>
