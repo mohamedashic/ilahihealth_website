@@ -677,6 +677,28 @@ html {
     width: 20px;
 }
 
+/* Portal Link Styles */
+.footer-links a[target="_blank"] {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.5rem;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 4px;
+    transition: all 0.3s ease;
+}
+
+.footer-links a[target="_blank"]:hover {
+    background: rgba(255, 255, 255, 0.2);
+    transform: translateY(-2px);
+}
+
+.portal-info {
+    color: rgba(255, 255, 255, 0.6);
+    margin-top: 0.5rem;
+    font-size: 0.85rem;
+}
+
 .social-links {
     display: flex;
     gap: 1rem;
