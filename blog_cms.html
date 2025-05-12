@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog CMS - Ilahi Healthcare</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="index.css">
+    <style>
+        .cms-container {
+            max-width: 1200px;
+            margin: 90px auto 2rem;
+            padding: 0 2rem;
+        }
+
+        .blog-form {
+            background: #fff;
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+            color: var(--primary-color);
+        }
+
+        input[type="text"],
+        input[type="date"],
+        select,
+        textarea {
+            width: 100%;
+            padding: 0.8rem;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-size: 1rem;
+        }
+
+        textarea {
+            min-height: 300px;
+            resize: vertical;
+        }
+
+        .image-preview {
+            max-width: 200px;
+            margin: 1rem 0;
+        }
+
+        .submit-button {
+            background: var(--primary-color);
+            color: white;
+            padding: 1rem 2rem;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 1rem;
+            transition: background 0.3s;
+        }
+
+        .submit-button:hover {
+            background: var(--primary-dark);
+        }
+
+        .success-message {
+            display: none;
+            background: #4CAF50;
+            color: white;
+            padding: 1rem;
+            border-radius: 4px;
+            margin-top: 1rem;
+        }
+
+        .error-message {
+            display: none;
+            background: #f44336;
+            color: white;
+            padding: 1rem;
+            border-radius: 4px;
+            margin-top: 1rem;
+        }
+    </style>
+</head>
+<body>
+    <!-- Include your header here -->
+
+    <main class="cms-container">
+        <h1>Create New Blog Post</h1>
+        <form id="blogForm" class="blog-form">
+            <div class="form-group">
+                <label for="title">Blog Title</label>
+                <input type="text" id="title" name="title" required>
+            </div>
+
+            <div class="form-group">
+                <label for="category">Category</label>
+                <select id="category" name="category" required>
+                    <option value="">Select Category</option>
+                    <option value="diabetes">Diabetes Care</option>
+                    <option value="cardiology">Cardiology</option>
+                    <option value="eldercare">Elder Care</option>
+                    <option value="pediatrics">Pediatrics</option>
+                    <option value="physiotherapy">Physiotherapy</option>
+                    <option value="nutrition">Nutrition</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="description">Short Description</label>
+                <textarea id="description" name="description" maxlength="200" required></textarea>
+            </div>
+
+            <div class="form-group">
+                <label for="content">Blog Content (HTML)</label>
+                <textarea id="content" name="content" required></textarea>
+            </div>
+
+            <div class="form-group">
+                <label for="featuredImage">Featured Image</label>
+                <input type="file" id="featuredImage" name="featuredImage" accept="image/*" required>
+                <img id="imagePreview" class="image-preview" style="display: none;">
+            </div>
+
+            <div class="form-group">
+                <label for="publishDate">Publish Date</label>
+                <input type="date" id="publishDate" name="publishDate" required>
+            </div>
+
+            <button type="submit" class="submit-button">Publish Blog Post</button>
+        </form>
+
+        <div id="successMessage" class="success-message">
+            Blog post published successfully!
+        </div>
+
+        <div id="errorMessage" class="error-message">
+            Error publishing blog post. Please try again.
+        </div>
+    </main>
+
+    <!-- Firebase Scripts -->
+    <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-firestore-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-storage-compat.js"></script>
+
+    <script>
+        // Firebase configuration
+        const firebaseConfig = {
+            apiKey: "",
+            authDomain: "ilahi-hims.firebaseapp.com",
+            projectId: "ilahi-hims",
+            storageBucket: "ilahi-hims.appspot.com",
+            messagingSenderId: "682686294407",
+            appId: "1:682686294407:android:f265bcf0e3f0f4c5a4cb22"
+        };
+
+        // Initialize Firebase
+        firebase.initializeApp(firebaseConfig);
+        const db = firebase.firestore();
+        const storage = firebase.storage();
+
+        // Image preview
+        document.getElementById('featuredImage').addEventListener('change', function(e) {
+            const file = e.target.files[0];
+            const preview = document.getElementById('imagePreview');
+            
+            if (file) {
+                const reader = new FileReader();
+                reader.onload = function(e) {
+                    preview.src = e.target.result;
+                    preview.style.display = 'block';
+                }
+                reader.readAsDataURL(file);
+            }
+        });
+
+        // Form submission
+        document.getElementById('blogForm').addEventListener('submit', async function(e) {
+            e.preventDefault();
+            
+            const successMessage = document.getElementById('successMessage');
+            const errorMessage = document.getElementById('errorMessage');
+            
+            try {
+                // Upload image
+                const file = document.getElementById('featuredImage').files[0];
+                const storageRef = storage.ref();
+                const imageRef = storageRef.child(`blog-images/${Date.now()}_${file.name}`);
+                const snapshot = await imageRef.put(file);
+                const imageUrl = await snapshot.ref.getDownloadURL();
+
+                // Create blog post
+                const blogData = {
+                    title: document.getElementById('title').value,
+                    category: document.getElementById('category').value,
+                    description: document.getElementById('description').value,
+                    content: document.getElementById('content').value,
+                    imageUrl: imageUrl,
+                    publishDate: document.getElementById('publishDate').value,
+                    createdAt: firebase.firestore.FieldValue.serverTimestamp(),
+                    slug: document.getElementById('title').value
+                        .toLowerCase()
+                        .replace(/[^a-z0-9]+/g, '-')
+                        .replace(/(^-|-$)+/g, '')
+                };
+
+                await db.collection('blog_posts').add(blogData);
+
+                successMessage.style.display = 'block';
+                errorMessage.style.display = 'none';
+                e.target.reset();
+                document.getElementById('imagePreview').style.display = 'none';
+
+                setTimeout(() => {
+                    successMessage.style.display = 'none';
+                }, 3000);
+
+            } catch (error) {
+                console.error('Error:', error);
+                errorMessage.style.display = 'block';
+                successMessage.style.display = 'none';
+            }
+        });
+    </script>
+</body>
+</html>

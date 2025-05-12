@@ -1,0 +1,227 @@
+/* Blog Post Styles */
+.blog-post {
+    max-width: 1200px;
+    margin: 90px auto 0;
+    padding: 0 2rem;
+}
+
+.post-header {
+    text-align: center;
+    margin-bottom: 3rem;
+}
+
+.post-header h1 {
+    font-size: 2.5rem;
+    color: var(--primary-color);
+    margin-bottom: 1rem;
+}
+
+.post-meta {
+    color: var(--grey);
+    display: flex;
+    gap: 2rem;
+    justify-content: center;
+    font-size: 0.9rem;
+}
+
+.post-meta i {
+    margin-right: 0.5rem;
+}
+
+.post-content {
+    max-width: 800px;
+    margin: 0 auto;
+    line-height: 1.8;
+}
+
+.post-content h2 {
+    margin-top: 3rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 2px solid var(--primary-color);
+}
+
+/* Blog Content Components */
+.blog-intro .lead {
+    font-size: 1.2rem;
+    color: #444;
+    margin-bottom: 2rem;
+}
+
+.info-box, .warning-box, .expert-tip {
+    position: relative;
+    padding: 2rem;
+    padding-left: 3rem;
+    margin: 2rem 0;
+    border-radius: 8px;
+    background: #f8f9fa;
+    border-left: 4px solid var(--primary-color);
+}
+
+.info-box:before, .warning-box:before, .expert-tip:before {
+    content: '';
+    position: absolute;
+    left: 1rem;
+    top: 1.5rem;
+    font-family: "Font Awesome 5 Free";
+    font-weight: 900;
+    font-size: 1.5rem;
+}
+
+.info-box:before {
+    content: '\f05a';
+    color: var(--primary-color);
+}
+
+.warning-box {
+    border-left-color: #dc3545;
+    background: #fff5f5;
+}
+
+.warning-box:before {
+    content: '\f071';
+    color: #dc3545;
+}
+
+.expert-tip {
+    border-left-color: #28a745;
+    background: #f0fff4;
+}
+
+.expert-tip:before {
+    content: '\f0eb';
+    color: #28a745;
+}
+
+/* Call to Action Section */
+.cta-section {
+    background: var(--primary-color);
+    color: var(--white);
+    padding: 3rem 2rem;
+    border-radius: 10px;
+    text-align: center;
+    margin: 3rem 0;
+}
+
+.cta-buttons {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    margin-top: 2rem;
+}
+
+/* Doctors Section Styling */
+.doctors-section {
+    margin: 4rem 0;
+    padding: 2rem;
+    background: #f8f9fa;
+    border-radius: 15px;
+}
+
+.doctors-section h2 {
+    text-align: center;
+    color: var(--primary-color);
+    margin-bottom: 1rem;
+}
+
+.section-intro {
+    text-align: center;
+    color: #666;
+    margin-bottom: 2rem;
+}
+
+.doctors-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    margin-top: 2rem;
+}
+
+.doctor-card {
+    background: white;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.doctor-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 5px 20px rgba(0,0,0,0.15);
+}
+
+.doctor-card img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+}
+
+.doctor-info {
+    padding: 1.5rem;
+}
+
+.doctor-info h3 {
+    color: var(--primary-color);
+    margin-bottom: 0.5rem;
+    font-size: 1.3rem;
+}
+
+.doctor-credentials {
+    color: #444;
+    font-weight: 500;
+    margin-bottom: 0.3rem;
+}
+
+.doctor-exp {
+    color: var(--primary-color);
+    font-weight: 600;
+    margin-bottom: 1rem;
+}
+
+.doctor-highlights {
+    list-style: none;
+    padding: 0;
+}
+
+.doctor-highlights li {
+    padding: 0.3rem 0;
+    color: #666;
+    font-size: 0.95rem;
+    border-bottom: 1px dashed #eee;
+}
+
+.doctor-highlights li:last-child {
+    border-bottom: none;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .blog-post {
+        margin-top: 80px;
+        padding: 0 1rem;
+    }
+
+    .post-header h1 {
+        font-size: 2rem;
+    }
+
+    .post-meta {
+        flex-direction: column;
+        gap: 0.5rem;
+    }
+
+    .cta-buttons {
+        flex-direction: column;
+    }
+
+    .doctors-section {
+        padding: 1rem;
+    }
+    
+    .doctor-card img {
+        height: 180px;
+    }
+    
+    .doctor-info {
+        padding: 1rem;
+    }
+}

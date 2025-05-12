@@ -185,12 +185,16 @@ body {
 }
 
 .success-message {
-    margin-top: 1rem;
-    padding: 1rem;
-    background: #4CAF50;
-    color: white;
-    border-radius: 5px;
+    display: none;
     text-align: center;
+    color: #4CAF50;
+    background: #E8F5E9;
+    padding: 15px;
+    border-radius: 6px;
+    margin-top: 20px;
+    font-size: 16px;
+    border: 1px solid #A5D6A7;
+    animation: slideIn 0.3s ease-out;
 }
 
 .contact-container {
@@ -264,6 +268,44 @@ body {
 .location-card p {
     color: var(--grey);
     line-height: 1.6;
+}
+
+.loader-container {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(255, 255, 255, 0.9);
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+.loader {
+    width: 48px;
+    height: 48px;
+    border: 5px solid var(--primary-color);
+    border-bottom-color: transparent;
+    border-radius: 50%;
+    animation: rotation 1s linear infinite;
+}
+
+@keyframes rotation {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+@keyframes slideIn {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 
 /* Mobile Responsive */
