@@ -677,6 +677,53 @@ html {
     width: 20px;
 }
 
+/* Blog Links in Footer */
+.blog-links li {
+    margin-bottom: 1rem;
+}
+
+.blog-links a {
+    display: block;
+    color: #fff;
+    text-decoration: none;
+    transition: color 0.3s;
+    font-size: 0.9rem;
+}
+
+.blog-links i {
+    margin-right: 0.5rem;
+    color: var(--primary-color);
+}
+
+.post-date {
+    display: block;
+    font-size: 0.8rem;
+    color: #999;
+    margin-left: 1.5rem;
+}
+
+.view-all-posts {
+    display: inline-block;
+    margin-top: 1rem;
+    color: var(--primary-color);
+    text-decoration: none;
+    font-size: 0.9rem;
+    transition: color 0.3s;
+}
+
+.view-all-posts i {
+    margin-left: 0.3rem;
+    transition: transform 0.3s;
+}
+
+.view-all-posts:hover {
+    color: #fff;
+}
+
+.view-all-posts:hover i {
+    transform: translateX(3px);
+}
+
 /* Portal Link Styles */
 .footer-links a[target="_blank"] {
     display: flex;
